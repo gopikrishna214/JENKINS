@@ -1,7 +1,7 @@
 node {
     stage('Preparation') { // for display purposes
         // Get some code from a GitHub repository
-        git branch: 'main', url: 'https://github.com/gopikrishna214/loging.git'
+        git branch: 'main', credentialsId: 'git', url: 'https://github.com/gopikrishna214/loging.git'
         // Get the Maven tool.
         // ** NOTE: This 'M3' Maven tool must be configured
         // **       in the global configuration.
