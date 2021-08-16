@@ -6,6 +6,10 @@ node {
         // ** NOTE: This 'M3' Maven tool must be configured
         // **       in the global configuration.
 
+     }
+    stage('mvn version') {
+        // Run the maven build
+        sh 'mvn --version'
     }
     stage('mvn clean') {
         // Run the maven build
