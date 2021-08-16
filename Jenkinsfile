@@ -1,15 +1,11 @@
 node {
     stage('Preparation') { // for display purposes
         // Get some code from a GitHub repository
-        git branch: 'main', credentialsId: 'git', url: 'https://github.com/gopikrishna214/ksapp.git'
+        git branch: 'main', credentialsId: 'root', url: 'https://github.com/gopikrishna214/ksapp.git'
         // Get the Maven tool.
         // ** NOTE: This 'M3' Maven tool must be configured
         // **       in the global configuration.
 
-     }
-    stage('mvn version') {
-        // Run the maven build
-        sh 'mvn --version'
     }
     stage('mvn clean') {
         // Run the maven build
