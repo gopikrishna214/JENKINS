@@ -1,7 +1,7 @@
 node {
     stage('Preparation') { // for display purposes
         // Get some code from a GitHub repository
-        git branch: 'main', credentialsId: 'git', url: 'https://github.com/gopikrishna214/loging.git'
+        git branch: 'main', credentialsId: 'git', url: 'https://github.com/gopikrishna214/ksapp.git'
         // Get the Maven tool.
         // ** NOTE: This 'M3' Maven tool must be configured
         // **       in the global configuration.
@@ -27,10 +27,6 @@ node {
     stage('mvn package') {
         // Run the maven build
         sh 'mvn package'
-    }
-	stage('mvn deploy') {
-        // Run the maven build
-        sh 'mvn deploy'
     }
 }
 
