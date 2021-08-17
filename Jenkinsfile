@@ -32,6 +32,9 @@ pipeline {
             sh 'mvn package'
             }
             }	
+		stage(',Maven deploy') {
+            steps {
+            sh 'mvn deploy'	
          
         }
     }
