@@ -27,12 +27,12 @@ pipeline {
             sh 'mvn compile'
             }
             }				
-	    stage(',Maven package') {
+	    stage('Maven package') {
             steps {
             sh 'mvn package'
             }
             }	
-		stage(',Maven deploy') {
+		stage('Maven deploy') {
             steps {
             sh 'mvn deploy'	
          
