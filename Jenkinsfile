@@ -1,41 +1,36 @@
-pipeline {
-    agent any
+node {
+    stage('Preparation') { // for display purposes
+        // Get some code from a GitHub repository
+        git branch: 'main', credentialsId: 'root', url: 'https://github.com/gopikrishna214/ksapp.git'
+        // Get the Maven tool.
+        // ** NOTE: This 'M3' Maven tool must be configured
+        // **       in the global configuration.
 
-    stages {
-        stage('Git clone') {
-            steps {
-                git branch: 'main', credentialsId: 'root', url: 'https://github.com/gopikrishna214/ksapp.git'
-            }
-            }
-        stage('Maven version') {
-            steps {
-            sh 'mvn --version'
-            }
-            }
-        stage('Maven Clean') {
-            steps {
-            sh 'mvn clean'
-            }
-            }			 
-        stage('Maven Validate') {
-            steps {
-            sh 'mvn validate'
-            }
-            }
-        stage('Maven Compile') {
-            steps {
-            sh 'mvn compile'
-            }
-            }				
-	    stage('Maven package') {
-            steps {
-            sh 'mvn package'
-            }
-            }	
-		stage('Maven deploy') {
-            steps {
-            sh 'mvn deploy'	
-         
-        }
     }
-}	
+    stage('mvn clean') {
+        // Run the maven build
+        sh 'mvn clean'
+        
+    }
+    stage('mvn validate') {
+        // Run the maven build
+        sh 'mvn validate'
+    }
+    stage('mvn compile') {
+        // Run the maven build
+        sh 'mvn compile'
+    }
+    stage('mvn test') {
+        // Run the maven build
+        sh 'mvn test'
+    }
+    stage('mvn package') {
+        // Run the maven build
+        sh 'mvn package'
+	}	
+		stage('mvn deploy') {
+        // Run the maven build
+        sh 'mvn deploy'
+    }
+}
+
