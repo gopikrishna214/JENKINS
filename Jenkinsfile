@@ -28,9 +28,9 @@ node {
         // Run the maven build
         sh 'mvn package'
 	}	
-	stage('mvn deploy') {
+	stage('mvn deployment') {
         // Run the maven build
-        sh 'mvn deploy'
+        sh 'mvn deployment'
     }
 }
 
